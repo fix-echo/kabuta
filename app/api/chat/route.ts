@@ -27,6 +27,20 @@ export async function POST(req: Request) {
           };
         },
       }),
+      convertFahrenheitToCelsius: tool({
+        description: "Convert a temperature in  Fahrenheit to Celsius",
+        parameters: z.object({
+          temperature: z
+            .number()
+            .describe("The temperature in Fahrenheit to convert to Celsius"),
+        }),
+        execute: async ({ temperature }) => {
+          const celsius = Math.round((temperature - 32) * (5 / 9));
+          return {
+            celsius,
+          };
+        },
+      }),
     },
   });
 
