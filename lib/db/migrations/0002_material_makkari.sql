@@ -1,0 +1,1 @@
+ALTER TABLE "unicorns" ALTER COLUMN "city" DROP NOT NULL;
