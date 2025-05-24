@@ -11,6 +11,7 @@ export async function POST(req: Request) {
   const openrouter = createOpenRouter({
     apiKey: process.env.OPENROUTER_API_KEY,
   });
+
   const result = streamText({
     model: openrouter("anthropic/claude-3.5-sonnet-20240620"),
     system: `You are a helpful assistant. Check your knowledge base before answering any questions.Only respond to questions using information from tool calls.if no relevant information is found in the tool calls, respond, "Sorry, I don't know."`,
