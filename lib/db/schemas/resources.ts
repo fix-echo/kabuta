@@ -22,16 +22,15 @@ export const resources = pgTable("resources", {
   createdAt: timestamp("created_at")
     .notNull()
     .default(sql`now()`),
-  updatedAt: timestamp('updated_at').notNull().default(sql`now()`)
+  updatedAt: timestamp("updated_at")
+    .notNull()
+    .default(sql`now()`),
 });
 
 // Schema for resources - used to validate API requests
-export const insertResourceSchema = createSelectSchema(resources).extend({}).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
+export const insertResourceSchema = z.object({
+  content: z.string(),
 });
 
-
 // Type for resources - used to type API request params and within Components
-export type NewResourceParams = z.infer<typeof insertResourceSchema>
+export type NewResourceParams = z.infer<typeof insertResourceSchema>;
