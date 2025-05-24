@@ -255,7 +255,7 @@ export default function Chat() {
               <button
                 type="button"
                 className="bg-transparent border-none text-xl cursor-pointer mr-2"
-                onClick={() => fileInputRef.current.click()}
+                onClick={() => fileInputRef?.current?.click()}
               >
                 📎
               </button>
