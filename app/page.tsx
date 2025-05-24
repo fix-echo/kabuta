@@ -24,6 +24,7 @@ export default function Chat() {
                 );
             }
           })}
+          {/* {message.content.length > 0 && message.content} */}
         </div>
       ))}
 
